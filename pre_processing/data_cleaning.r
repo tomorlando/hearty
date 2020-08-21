@@ -1,6 +1,7 @@
 
 rm(list = ls())
-setwd("C:\\Users\\Tom Orlando\\Monash\\FIT3164")
+
+# setwd("C:\\Users\\Tom Orlando\\Monash\\FIT3164")
 
 # install.packages("readxl")
 # install.packages("dplyr")
@@ -9,7 +10,7 @@ library(readxl)
 library("dplyr")
 
 # load dataset and explore data 
-heart <- read_excel('./data/initial_dataset.xlsx')
+heart <- read_excel('./data/full_data/heart_initial.xlsx')
 dim(heart)
 summary(heart)
 str(heart)
@@ -66,7 +67,19 @@ df.combined <- df.combined[, -which(colnames(df.combined) %in% c("Cath"))]
 View(df.combined)
 
 # Save down file to a new csv
-write.csv(df.combined,"./data/heart_clean.csv", row.names = FALSE)
-nheart<- read.csv('./data/heart_clean.csv')
+write.csv(df.combined,"./data/full_data/heart_clean.csv", row.names = FALSE)
+nheart<- read.csv('./data/full_data/heart_clean.csv')
 
-str(nheart)
+View(nheart)
+# splitting data into training and test set
+set.seed(28009592)
+train.row <- sample(1:nrow(nheart), 0.7*nrow(nheart))
+df.train <- nheart[train.row,]
+df.test <- nheart[-train.row,]
+
+nrow(df.train)
+nrow(df.test)
+nrow(nheart)
+
+write.csv(df.train, './data/heart_train.csv', row.names = FALSE)
+write.csv(df.test, './data/heart_test.csv', row.names = FALSE)
