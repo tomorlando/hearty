@@ -1,0 +1,12 @@
+asgiref==3.2.10
+cffi==1.14.2
+Django==3.1
+lineedit==0.1.5
+pycparser==2.20
+Pygments==2.6.1
+pytz==2020.1
+radian==0.5.8
+rchitect==0.3.28
+six==1.15.0
+sqlparse==0.3.1
+wcwidth==0.2.5
