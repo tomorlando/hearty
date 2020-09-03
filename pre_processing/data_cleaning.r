@@ -81,5 +81,5 @@ nrow(df.train)
 nrow(df.test)
 nrow(nheart)
 
-write.csv(df.train, './data/heart_train.csv', row.names = FALSE)
-write.csv(df.test, './data/heart_test.csv', row.names = FALSE)
+write.csv(df.train, './data/full_data/heart_train_nf.csv', row.names = FALSE)
+write.csv(df.test, './data/full_data/heart_test_nf.csv', row.names = FALSE)
