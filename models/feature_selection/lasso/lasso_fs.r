@@ -15,11 +15,11 @@ setwd("C:\\Users\\Tom Orlando\\Monash\\FIT3164")
 
 #install.packages("glmnet")
 library(glmnet)
-source('./models/feature_selection/lasso/wrappers.R')
-source("./models/feature_selection/lasso/my_pred_stats.R")
+source('./build/wrappers/glm_wrappers.R')
+source("./build/wrappers/my_pred_stats.R")
 
 # Importing training dataset of which we will find  
-df <- read.csv('./data/heart_train.csv')
+df <- read.csv('./data/filtered_features/heart_train.csv')
 
 # Using lasso to penalise (and filter) non-important variables with various lambdas
 lasso.fit <- glmnet.f(CAD_Yes~., df, family='binomial', lambda = 0.02)
