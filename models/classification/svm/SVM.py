@@ -3,6 +3,7 @@ from sklearn import svm
 from sklearn.metrics import accuracy_score,f1_score,roc_auc_score,recall_score,precision_score
 from sklearn import metrics
 
+from sklearn.model_selection import cross_val_score
 import pandas as pd
 
 #Read external data
@@ -19,33 +20,22 @@ X_test = Cad_test.drop(['CAD_Yes'], axis = 1)
 
 from sklearn.svm import SVC
 from sklearn import metrics
-
+#The fit method of SVC class is called to train the algorithm on the training data, which is passed as a parameter to the fit method
 # fit a SVM model to the data
+svcclassifier=SVC(kernel='linear')
 
-model_train = SVC()
-print(model_train)
-model_train.fit(X_train, Y_train)
+svcclassifier.fit(X_train, Y_train)
+#To make predictions, the predict method of the SVC class is used.
+y_pred = svcclassifier.predict(X_test)
+from sklearn.metrics import classification_report, confusion_matrix
+#Evaluating the Algorithm
+print(confusion_matrix(Y_test,y_pred))
+print(classification_report(Y_test,y_pred))
+print("recall score",recall_score(Y_test, svcclassifier.predict(X_test)))
+print("f1_score",f1_score(Y_test, svcclassifier.predict(X_test)))
+print("precision",precision_score(Y_test, svcclassifier.predict(X_test)))
 
-# make predictions
-expected_train =Y_train
-predicted_train = model_train.predict(X_train)
-# summarize the fit of the model
-print(metrics.classification_report(expected_train, predicted_train))
-print(metrics.confusion_matrix(expected_train, predicted_train))
-
-
-
-
-# fit a SVM model to the data
-
-model_test = svm.SVC()
-print(model_test)
-model_test.fit(X_test, Y_test)
-
-# make predictions
-expected_test =Y_test
-predicted_test = model_test.predict(X_test)
-# summarize the fit of the model
-print(metrics.classification_report(expected_test, predicted_test))
-print(metrics.confusion_matrix(expected_test, predicted_test))
-
+scores = cross_val_score(svcclassifier, X_train, Y_train, cv=10, scoring="accuracy")
+print(scores)
+meanScore = scores.mean()
+print(meanScore * 100)

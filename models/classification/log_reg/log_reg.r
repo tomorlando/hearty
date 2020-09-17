@@ -106,7 +106,6 @@ summary(final.model)
 # allows us to first overfit the model by adding many new features (through interactions), then
 # penalising all the features which result in lower accuracy using the elastic net method.
 
-
-predict.glmnet.f(final.model, user.input, type='response')
+predict.glmnet.f(final.model, df.test, type='response')
 
 user.input <- as.data.frame(df.test[1,c(1:ncol(df.test))])
