@@ -28,7 +28,7 @@ library(funModeling)
 library(tidyverse)
 library(GA)
 library("e1071")
-source('./models/feature_selection/genetic_algorithm/wrappers.R')
+source('./build/wrappers/ga_wrappers.R')
 
 # Importing data with which we wish to find best features   
 df <- read.csv('./data/full_data/heart_clean.csv')
@@ -45,6 +45,7 @@ ga_main <- ga(fitness = function(vars) custom_fitness(vars = vars,
                                                       data_x = df.x,
                                                       data_y = df.y,
                                                       p_sampling = 0.7),
+                                                      
               type = "binary",
               crossover = gabin_uCrossover,
               elitism = 3,
