@@ -4,7 +4,7 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
-  return HttpResponse('<h1>Welcome to the Heart Disease detection tool!</h1>')
+  return HttpResponse('index.html')
 
 def model(request):
   return HttpResponse('<h1>Heart check page</h1>')
