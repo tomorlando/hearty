@@ -96,6 +96,8 @@ for (i in 1:9){
 my.pred.stats(predict.glmnet.f(elnet.fit4, df.test, type='response'), df.test$CAD_Yes)
 
 final.model <- cv.glmnet.f(formula, data= df.train, family='binomial', alpha=.4)
+my.pred.stats(predict.glmnet.f(final.model, df.test, type='response'), df.test$CAD_Yes)
+
 summary(final.model)
 
 # It seems an alpha of .4 provides the most accurate model, and will therefore be used as our main 
