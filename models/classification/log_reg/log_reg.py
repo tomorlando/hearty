@@ -46,7 +46,6 @@ grid_search.fit(x_train, y_train)
 final_model = grid_search.best_estimator_
 
 y_pred = final_model.predict(x_test)
-y_pred
 
 confusion_matrix(y_test, y_pred)
 
@@ -55,5 +54,8 @@ print("recall score", recall_score(y_test, y_pred))
 print("f1_score", f1_score(y_test, y_pred))
 print("precision", precision_score(y_test, y_pred))
 
-sklearn.metrics.plot_roc_curve(model, x_test, y_test)
-plt.show()
+sklearn.metrics.plot_roc_curve(final_model, x_test, y_test)
+sklearn.metrics.plot_confusion_matrix(final_model, x_test, y_test, cmap='Blues')
+
+
+
