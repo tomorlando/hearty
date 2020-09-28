@@ -10,6 +10,9 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.pipeline import Pipeline
 import sklearn
 import matplotlib as plt
+import pickle
+import joblib
+
 
 df = pd.read_csv('/Users/Tom Orlando/Monash/FIT3164/data/filtered_features/heart_train.csv')
 y_train = df.CAD_Yes.values
@@ -23,6 +26,7 @@ model = LogisticRegression()
 scaler = MinMaxScaler(feature_range = (0,1))
 
 scaler.fit(x_train)
+
 x_train = scaler.transform(x_train)
 x_test = scaler.transform(x_test)
 
@@ -57,5 +61,9 @@ print("precision", precision_score(y_test, y_pred))
 sklearn.metrics.plot_roc_curve(final_model, x_test, y_test)
 sklearn.metrics.plot_confusion_matrix(final_model, x_test, y_test, cmap='Blues')
 
+joblib.dump(final_model, 'log_reg.pkl')
+joblib.dump(scaler, 'scaler.pkl')
 
+
+user_test = [[ 1, 25,  1,  1,  1, 45, 85,  3,  1,  1, 78, 45, 59,  1,  1]]
 

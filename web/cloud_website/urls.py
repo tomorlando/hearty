@@ -8,8 +8,8 @@ router = routers.DefaultRouter()
 router.register('cloud_website', views.InformationView)
 urlpatterns = [
     path('', views.home, name='home-page'),
-    path('model/', views.model, name='model-page'),
-    path('output/', views.output, name='output-page'),
+    path('information/', views.model, name='information-page'),
+    path('result/', views.result, name='result-page'),
     path('api/', include(router.urls), name='api-page'),
 ]
 
