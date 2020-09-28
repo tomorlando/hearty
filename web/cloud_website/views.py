@@ -43,4 +43,4 @@ def result(request):
     new_df = new_df.replace({1: 'Likely to have heart disease', 0: 'Not likely to have heart disease'})
     return JsonResponse('{}'.format(new_df), safe=False)
   except ValueError as e:
-    return Response(e.args[0], status.HTTP_400_BAD_REQUEST) 
+    return Response(e.args[0], status.HTTP_400_BAD_REQUEST)
