@@ -24,7 +24,7 @@ class InformationView(viewsets.ModelViewSet):
   serializer_class = InformationSerializers
 
 def home(request):
-  return HttpResponse('<h1>Welcome to the heart project!</h1>')
+  return render(request, 'index.html')
 
 #@api_view(['POST'])
 def result(unit):
