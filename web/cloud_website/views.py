@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from django.core import serializers
+from django.contrib import messages
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import JsonResponse
@@ -38,7 +39,7 @@ def result(unit):
     ypred = model.predict(test)
     new_df = pd.DataFrame(ypred, columns=['Diagnosis'])
     new_df = new_df.replace({1: 'Likely to have heart disease', 0: 'Not likely to have heart disease'})
-    return ('{}'.format(new_df))
+    return ('{}'.format(new_df.values[0][0]))
   except ValueError as e:
     return Response(e.args[0], status.HTTP_400_BAD_REQUEST)
 
@@ -62,7 +63,8 @@ def cxcontact(request):
         dlp = form.cleaned_data['dlp']
         diastolic_murmur = form.cleaned_data['diastolic_murmur']
         info = (request.POST).dict()
-        print(result(info))
+        answer = result(info)
+        messages.success(request, 'Diagnosis: {}'.format(answer))
         
   form = PatientForm()
 
