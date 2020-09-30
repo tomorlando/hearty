@@ -3,22 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Detecting Heart Disease</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/sass/main.sass">
+
 </head>
 <body>
-  <form method='post'>
-    {% csrf_token %}
-    {{form|linebreaks}}
-    <button type='submit'>Submit</button>
-  </form>
-  {% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-    <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}>
-      {{ message }}
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
+  {% load static %}
+  {% load crispy_forms_tags %}
+    <div class="container">
+      <header>
+        <div class="nav-brand">
+          <a class="nav-item" href="#">
+            <img class="nav-logo" src="{% static '/images/logo.png' %}" alt="Hearty Logo">
+          </a>
+        </div>
+        <nav>
+          <a href="#" class="hide-desktop"><img src="{% static '/images/ham.png' %}" alt="toggle menu" class="menu" id="menu"></a>  
+          <ul class="show-desktop hide-desktop" id="nav">
+            <li id="exit" class="exit-btn hide-desktop"><img src="{% static '/images/exit.png' %}" alt=""></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Diagnosis</a></li>
+            <li><a href="#">Information</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section>
+        <img src="{% static '/images/heart.png' %}" alt="Heart Graphic">
+      </section>
+
+
+      <form method='post'>
+        {% csrf_token %}
+        {{form|linebreaks}}
+        <button type='submit'>Submit</button>
+      </form>
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}>
+          {{ message }}
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    
+    
+    
+    </div>
+
 </body>
 </html>
