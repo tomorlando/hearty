@@ -4,43 +4,43 @@ from django.db import models
 
 class Information(models.Model):
   CHEST_CHOICE = (
-    ('Yes', 'Yes'),
-    ('No', 'No')
+    (1, 'Yes'),
+    (0, 'No')
   )
   DM_CHOICE = (
-    ('Yes', 'Yes'),
-    ('No', 'No')
+    (1, 'Yes'),
+    (0, 'No')
   )
   HT_CHOICE = (
-    ('Yes', 'Yes'),
-    ('No', 'No')
+    (1, 'Yes'),
+    (0, 'No')
   )
   FH_CHOICE = (
-    ('Yes', 'Yes'),
-    ('No', 'No')
+    (1, 'Yes'),
+    (0, 'No')
   )
   REGION_CHOICE = (
-    ('0', '0'),
-    ('1', '1'),
-    ('2', '2'),
-    ('3', '3'),
-    ('4', '4'),
+    (0, '0'),
+    (1, '1'),
+    (2, '2'),
+    (3, '3'),
+    (4, '4'),
   )
   BBB_CHOICE = (
-    ('Yes', 'Yes'),
-    ('No', 'No')
+    (0, 'Yes'),
+    (1, 'No')
   )
   TIN_CHOICE = (
-    ('Yes', 'Yes'),
-    ('No', 'No')
+    (1, 'Yes'),
+    (0, 'No')
   )
   DLP_CHOICE = (
-    ('Yes', 'Yes'),
-    ('No', 'No')
+    (1, 'Yes'),
+    (0, 'No')
   )
   MURMUR_CHOICE = (
-    ('Yes', 'Yes'),
-    ('No', 'No')
+    (1, 'Yes'),
+    (0, 'No')
   )
   typical_chest_pain=models.CharField(max_length=15, choices=CHEST_CHOICE)
   age=models.IntegerField()

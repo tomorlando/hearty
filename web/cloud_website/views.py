@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-#from . forms import MyForm
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from django.core import serializers
@@ -10,6 +9,7 @@ from django.http import JsonResponse
 from rest_framework.parsers import JSONParser
 from . models import Information
 from . serial import InformationSerializers
+from . forms import PatientForm
 import pickle
 import json
 import numpy
@@ -25,14 +25,11 @@ class InformationView(viewsets.ModelViewSet):
 def home(request):
   return HttpResponse('<h1>Welcome to the heart project!</h1>')
 
-def model(request):
-  return HttpResponse('<h1>Page where all details is added + info on heart disease</h1>')
-
-@api_view(['POST'])
-def result(request):
+#@api_view(['POST'])
+def result(unit):
   try:
     model = joblib.load('/Users/Tom Orlando/Monash/FIT3164/models/classification/log_reg/log_reg.pkl')
-    mydata = request.data
+    mydata = unit
     unit = np.array(list(mydata.values()))
     unit = unit[1:]
     unit = unit.reshape(1, -1)
@@ -41,6 +38,34 @@ def result(request):
     ypred = model.predict(test)
     new_df = pd.DataFrame(ypred, columns=['Diagnosis'])
     new_df = new_df.replace({1: 'Likely to have heart disease', 0: 'Not likely to have heart disease'})
-    return JsonResponse('{}'.format(new_df), safe=False)
+    return ('{}'.format(new_df))
   except ValueError as e:
     return Response(e.args[0], status.HTTP_400_BAD_REQUEST)
+
+def cxcontact(request):
+  if request.method=='POST':
+    form = PatientForm(request.POST)
+    if form.is_valid():
+        typical_chest_pain = form.cleaned_data['typical_chest_pain']
+        age = form.cleaned_data['age']
+        dm = form.cleaned_data['dm']
+        ht = form.cleaned_data['ht']
+        fh = form.cleaned_data['fh']
+        tg = form.cleaned_data['tg']
+        k = form.cleaned_data['k']
+        region_rwma = form.cleaned_data['region_rwma']
+        bbb = form.cleaned_data['bbb']
+        tinversion = form.cleaned_data['tinversion']
+        fbs = form.cleaned_data['fbs']
+        esr = form.cleaned_data['esr']
+        ef_tte = form.cleaned_data['ef_tte']
+        dlp = form.cleaned_data['dlp']
+        diastolic_murmur = form.cleaned_data['diastolic_murmur']
+        info = (request.POST).dict()
+        print(result(info))
+        
+  form = PatientForm()
+
+  return render(request, 'form/cxform.html', {'form':form})
+
+
