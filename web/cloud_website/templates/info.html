@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hearty | Home</title>
+  <title>Hearty | Information</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
   integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
   crossorigin="anonymous">
@@ -30,43 +30,9 @@
           </ul>
         </nav>
       </header>
+    
+      <h1>Information</h1>
 
-      <section>
-        <img class="heart" src="{% static '/images/heart_shadow.svg' %}" alt="Heart Graphic">
-        <h1 class="heart_tagline">Combining Machine Learning and Medicine</h1>
-        <p class="subhead">Use our state of the art technology to find out how healthy your heart really is!</p>
-      </section>
-    </div>
-
-    <div class="dark-container">
-      <div class="container">
-        <ul>
-          <li>
-            <img src="{% static '/images/icon-1.svg' %}" alt="Icon-1" >
-            <p>
-              <b>Heart disease is one of the largest causes of death around the world.</b>
-              It's now more important than ever to stay on top of your health and get checked out regularly<br><br><b>We can help</b></p>
-          </li>  
-          <li>
-            <img src="{% static '/images/icon-2.svg' %}" alt="Icon-2" >
-            <p>
-              <b>Data and healthcare go hand in hand.</b>
-              Through the vast amounts of data and powerful modelling methods available today, there have been significant advances in modern medicine<br><br><b>That's good for you</b></p>
-          </li>
-          <li>
-            <img src="{% static '/images/icon-3.svg' %}" alt="Icon-3" >
-            <p>
-              <b>We've combined expertise in machine learning and artificial intelligence.</b>
-              By simply inputing your data, our state of the art modeling systems can accurately predict if you might be at risk<br><br><b>Want to try it out?</b></p>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="container">
-      <h2>Take the test now!</h2>
-      <a href="{% url 'diagnosis-page'%}" class="cta">Get started</a>
-    </div>
 
     <footer>
       <div class="footer-container">

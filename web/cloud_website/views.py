@@ -26,7 +26,9 @@ class InformationView(viewsets.ModelViewSet):
 def home(request):
   return render(request, 'index.html')
 
-#@api_view(['POST'])
+def information(request):
+  return render(request, 'info.html')
+
 def result(unit):
   try:
     model = joblib.load('/Users/Tom Orlando/Monash/FIT3164/models/classification/log_reg/log_reg.pkl')

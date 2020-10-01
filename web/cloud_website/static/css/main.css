@@ -22,6 +22,12 @@
    padding: 1.2em 1.2em .5em; 
  }
 
+ .container-form {
+  text-align: left;
+  padding: 1.2em 1.2em .5em;
+  max-width: 800px; 
+}
+
  .logo {
    width: 150px;
  }
@@ -33,6 +39,7 @@
 header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: .8em;
 }
 
 .menu {
@@ -45,7 +52,7 @@ header {
   margin: 4em 18% 2.5em 1em;
 }
 
-h1, .subhead {
+h1, .subhead, .subhead-2 {
   position: relative;
 }
 
@@ -54,12 +61,24 @@ h1, .subhead {
   margin-top: 1.5em;
 }
 
+.subhead-2 {
+  font-size: 0.9em;
+  margin-top: 7em;
+}
+
 .dark-container {
   width: 100%;
   background: #EA7B74;
   color: #fff;
   margin-top: 10%;
   padding: 3em 0 2em;
+}
+
+.dark-container-2 {
+  width: 100%;
+  background: #EA7B74;
+  color: #fff;
+  padding: 2em 0 4em;
 }
 
 .dark-container ul li {
@@ -96,6 +115,8 @@ h2 {
   font-size: 16px;
   margin: 7% auto 15%;
   position: relative;
+  outline: none;
+  border: none;
 }
 
 .cta:hover  {
@@ -249,7 +270,7 @@ nav ul li a:hover {
   }
 
   nav ul li a:hover {
-    color: #820041;
+    color: #EA7B74;
     font-weight: bold;
     background-color: inherit;
   }
