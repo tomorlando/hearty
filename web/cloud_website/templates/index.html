@@ -17,7 +17,7 @@
       <header>
         <div class="nav-brand">
           <a class="nav-item" href="#">
-            <img class="logo" src="{% static '/images/logo_small.svg' %}" alt="Hearty Logo">
+            <img class="logo" src="{% static '/images/logo.svg' %}" alt="Hearty Logo">
           </a>
         </div>
         <nav>
@@ -74,7 +74,7 @@
           <a href="#">
             <img class="sa-logo" src="{% static '/images/sa_logo.png' %}" alt="Hearty Logo">
           </a>  
-          <p class="address">13 Ancora Imparo Way, Monash University, 3800<br>VIC</p>
+          <p class="address">13 Ancora Imparo Way,  Monash University,  3800<br>VIC</p>
           <ul class="footer-links">
             <li><a href="#">Terms of Service</a></li>
             <li><a href="#">Privacy Policy</a></li>
@@ -82,6 +82,23 @@
         </div>
       </div>
     </footer>
+
+    <script>
+
+      var menu = document.getElementById('menu');
+      var nav = document.getElementById('nav');
+      var exit = document.getElementById('exit');
+
+      menu.addEventListener('click', function(e) {
+        nav.classList.toggle('hide-mobile');
+        e.preventDefault();
+      });
+      
+      exit.addEventListener('click', function(e) {
+        nav.classList.add('hide-mobile');
+        e.preventDefault();
+      });
+    </script>
 
 </body>
 </html>

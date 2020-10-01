@@ -47,7 +47,6 @@ header {
 
 h1, .subhead {
   position: relative;
-  z-index: 3;
 }
 
 .subhead {
@@ -87,16 +86,22 @@ h2 {
 
 .cta {
   background-color: #820041;
+  color: #fff;
   width: calc(100% - 6em);
   display: block;
-  color: #fff;
+  background-color: #820041;
   border-radius: 15px;
   padding: .5em;
   text-decoration: none;
   font-size: 16px;
   margin: 7% auto 15%;
   position: relative;
-  z-index: 4;
+}
+
+.cta:hover  {
+  background-color: #C20259;
+  color: #fff;
+  text-decoration: none;
 }
 
 footer {
@@ -114,4 +119,139 @@ footer {
 
 .footer-container a {
   color: #fff;
+  font-size: .8em;
+}
+
+nav ul {
+  position: fixed;
+  width: 60%;
+  top: 0;
+  right: 0;
+  text-align: left;
+  background: #F9D9D7;
+  height: 100%;
+  padding-top: 3em;
+  z-index: 1;
+}
+
+nav ul li a {
+  color: #820041;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 1em 2em;
+}
+
+nav ul li a:hover {
+  background-color: #F6C3C0;
+  text-decoration: none;
+  color: #fff;
+}
+
+.exit-btn {
+  margin-bottom: 1em;
+  margin-top: -1.3em;
+  text-align: right;
+  padding: 0 1.4em;
+}
+
+.exit-btn img {
+  width: 25px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width:768px) {
+
+  .container {
+    padding: 1.2em 1.2em .5em;
+  }
+  
+  .heart {
+    width: 35%;
+    margin: 3em 12% 2.5em 1em;
+  }
+
+  .logo{
+    width: 45%;
+  }
+
+  h1 {
+    font-size: 3em;
+    padding: .5em 2em;
+  }
+  
+  .subhead {
+    font-size: 1.4em;
+    padding: .5em 6em;
+    margin-bottom: -6%;
+  }
+
+  .dark-container {
+    margin-top: 10%;
+  }
+
+  .dark-container ul li:nth-child(1) img {
+    width: 33%;
+  }
+
+  .dark-container ul li:nth-child(2) img {
+    width: 28%;
+  }
+
+  .dark-container ul li:nth-child(3) img {
+    width: 26%;
+  }
+
+  .dark-container ul {
+    display: flex;
+    margin-top: -1em;
+    align-items: center;
+  }
+  
+  .dark-container ul li {
+    padding: 0 1.5em;
+    margin-bottom: 0;
+  }
+
+  .cta {
+    width: 30%;
+    margin-bottom: 7%;
+    margin-top: 4%;
+  }
+
+  .show-desktop {
+    display: block;
+    margin: 0 auto 13% auto;
+  }
+
+  .hide-desktop {
+    display: none;
+  }
+
+  nav ul {
+    position: inherit;
+    width: auto;
+    background: #fff;
+    height: auto;
+    display: flex;
+    padding-top: 0;
+  }
+
+  nav ul li {
+    float: left;
+  }
+
+  nav ul li a {
+    color: black;
+    background-color: inherit;
+    text-align: right;
+    padding: 1em 2em;
+  }
+
+  nav ul li a:hover {
+    color: #820041;
+    font-weight: bold;
+    background-color: inherit;
+  }
+
 }
