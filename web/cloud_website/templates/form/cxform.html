@@ -37,7 +37,7 @@
       <div class="dark-container-2">
         <div class="container">
           <h1>Find out how healthy your really heart is</h1>
-          <p class="subhead">
+          <p class="subhead-form">
             All you need to do is fill out the form below, and our specialised algorithm will do the work
           </p>
         </div>
@@ -46,14 +46,17 @@
 
     <section>
       <div class="container">
+        <h2 class="form-heading">
+          Input your information below
+        </h2>
         <div class="container-form">
           <form method='post'>
             {% csrf_token %}
             {{form|crispy}}
-            <button type='submit' class="cta">Submit</button>
+            <button type='submit' class="cta" style="margin-top: 3em">Submit</button>
           </form>
         </div>
-        <div class="container">
+        <div class="container hide-mobile">
           {% if messages %}
           <ul class="messages">
             {% for message in messages %}

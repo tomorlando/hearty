@@ -24,8 +24,7 @@
 
  .container-form {
   text-align: left;
-  padding: 1.2em 1.2em .5em;
-  max-width: 800px; 
+  padding: 1.2em 1.5em .5em; 
 }
 
  .logo {
@@ -48,11 +47,11 @@ header {
 }
 
 .heart {
-  width: 60%;
-  margin: 4em 18% 2.5em 1em;
+  width: 70%;
+  margin: 4em 18% 2.5em 0.3em;
 }
 
-h1, .subhead, .subhead-2 {
+h1, .subhead {
   position: relative;
 }
 
@@ -61,9 +60,9 @@ h1, .subhead, .subhead-2 {
   margin-top: 1.5em;
 }
 
-.subhead-2 {
-  font-size: 0.9em;
-  margin-top: 7em;
+.subhead-form {
+  font-size: 1.2em;
+  margin: 2em 0 0;
 }
 
 .dark-container {
@@ -78,7 +77,7 @@ h1, .subhead, .subhead-2 {
   width: 100%;
   background: #EA7B74;
   color: #fff;
-  padding: 2em 0 4em;
+  padding: 2em 0 3em;
 }
 
 .dark-container ul li {
@@ -103,17 +102,21 @@ h2 {
   margin-top: 1em;
 }
 
+.form-heading {
+  margin: 1em 0 1.5em;
+}
+
 .cta {
   background-color: #820041;
   color: #fff;
   width: calc(100% - 6em);
   display: block;
   background-color: #820041;
-  border-radius: 15px;
+  border-radius: 5px;
   padding: .5em;
   text-decoration: none;
   font-size: 16px;
-  margin: 7% auto 15%;
+  margin: 7% auto 11%;
   position: relative;
   outline: none;
   border: none;
@@ -181,7 +184,7 @@ nav ul li a:hover {
   cursor: pointer;
 }
 
-@media only screen and (min-width:768px) {
+@media only screen and (min-width:992px) {
 
   .container {
     padding: 1.2em 1.2em .5em;
@@ -202,6 +205,12 @@ nav ul li a:hover {
   }
   
   .subhead {
+    font-size: 1.4em;
+    padding: .5em 6em;
+    margin-bottom: -6%;
+  }
+
+  .subhead-form {
     font-size: 1.4em;
     padding: .5em 6em;
     margin-bottom: -6%;
@@ -236,7 +245,7 @@ nav ul li a:hover {
 
   .cta {
     width: 30%;
-    margin-bottom: 7%;
+    margin-bottom: 4%;
     margin-top: 4%;
   }
 
@@ -274,5 +283,24 @@ nav ul li a:hover {
     font-weight: bold;
     background-color: inherit;
   }
+
+  .container-form {
+    text-align: left;
+    padding: 1.2em 10em .5em;
+  }
+
+  .dark-container-2 {
+    width: 100%;
+    background: #EA7B74;
+    color: #fff;
+    padding: 2em 05em;
+  }
+
+  .subhead-form {
+    font-size: 1.4em;
+    margin: 1.5em 0 1.5em;
+  }
+  
+
 
 }
