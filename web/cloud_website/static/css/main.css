@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
+/* Mobile first formatting*/
+
  body {
    margin: 0;
    font-family: Montserrat, sans-serif;
@@ -44,6 +46,10 @@ header {
 .menu {
   width: 29px;
   margin: 23% 23% 0 0;
+}
+
+.menu:hover {
+  cursor: pointer;
 }
 
 .heart {
@@ -120,6 +126,7 @@ h2 {
   position: relative;
   outline: none;
   border: none;
+  font-weight: bold;
 }
 
 .cta:hover  {
@@ -183,6 +190,9 @@ nav ul li a:hover {
   width: 25px;
   cursor: pointer;
 }
+
+
+/* Desktop conversion*/
 
 @media only screen and (min-width:992px) {
 

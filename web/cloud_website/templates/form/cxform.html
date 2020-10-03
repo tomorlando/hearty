@@ -8,6 +8,7 @@
   integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
   crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/modal.css">
   <link rel="shortcut icon" href="/static/images/sa_logo.ico" />
 </head>
 
@@ -50,26 +51,50 @@
           Input your information below
         </h2>
         <div class="container-form">
-          <form method='post'>
+          <form method='POST' id="form-submit">
             {% csrf_token %}
             {{form|crispy}}
-            <button type='submit' class="cta" style="margin-top: 3em">Submit</button>
+            <button type='submit' class="cta" style="margin-top: 3em" id='submit'>Submit</button>
           </form>
         </div>
-        <div class="container hide-mobile">
-          {% if messages %}
-          <ul class="messages">
-            {% for message in messages %}
-            <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}>
+      </div>
+    
+      <div id="simple-modal" class="modal-form">
+        <div class="modal-content-form">
+          <span class="close-btn">&times;</span>
+          <div class="modal-container">
+            <div class="modal-text">
+              {% if messages %}
+              <ul class="messages">
+              {% for message in messages %}
+              <h1>
+              <li {% if message.tags %} class=" {{ message.tags }} " {% endif %}>
               {{ message }}
-            </li>
-            {% endfor %}
-          </ul>
-          {% endif %}
+              </li>
+              </h1>
+              {% if message == "At risk of heart disease" %}
+                <p>
+                <b>Don't stress!</b> This happens to many people, you've taken the first step in getting tested
+                </p>
+              {% else %}
+                <p>
+                <b>Great news!</b> Keep up the good work, and remember to maintain a healthy lifestyle and diet
+                </p>
+              {% endif %}
+              {% endfor %}
+              </ul>
+              {% endif %}
+              <a href="{% url 'information-page'%}" class="cta-modal">What to do now</a>
+              <h6>
+                We've put together some information you might find useful
+              </h6>
+            </div>
+            <img class="modal-img-mobile form-hide-desktop" src="{% static '/images/heart_left.svg' %}" alt="Heart">  
+            <img class="modal-img-desktop form-hide-mobile" src="{% static '/images/heart_shadow.svg' %}" alt="Heart">  
+          </div>
         </div>
       </div>
-      
-    </section>
+    </section>  
 
 
     <footer>
@@ -88,22 +113,22 @@
     </footer>
       
 
-    <script>
+  <script src="/static/js/modal.js"></script>
+  <script>
+    var menu = document.getElementById('menu');
+    var nav = document.getElementById('nav');
+    var exit = document.getElementById('exit');
 
-      var menu = document.getElementById('menu');
-      var nav = document.getElementById('nav');
-      var exit = document.getElementById('exit');
-
-      menu.addEventListener('click', function(e) {
-        nav.classList.toggle('hide-mobile');
-        e.preventDefault();
-      });
-      
-      exit.addEventListener('click', function(e) {
-        nav.classList.add('hide-mobile');
-        e.preventDefault();
-      });
-    </script>
+    menu.addEventListener('click', function(e) {
+      nav.classList.toggle('hide-mobile');
+      e.preventDefault();
+    });
+    
+    exit.addEventListener('click', function(e) {
+      nav.classList.add('hide-mobile');
+      e.preventDefault();
+    });
+  </script>
 
 </body>
 </html>
