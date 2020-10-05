@@ -6,7 +6,7 @@ class PatientForm(forms.Form):
   dm = forms.ChoiceField(choices=[(0,'No'), (1,'Yes')])
   ht = forms.ChoiceField(choices=[(0,'No'), (1,'Yes')])
   fh = forms.ChoiceField(choices=[(0,'No'), (1,'Yes')])
-  tg = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Enter patient TG'}))
+  tg = forms.IntegerField(widget=forms.NumberInput(attrs={'placeholder': 'Enter patient TG'}),help_text='122 if u do not know')
   k = forms.FloatField(widget=forms.NumberInput(attrs={'placeholder': 'Enter patient K'}))
   region_rwma = forms.ChoiceField(choices=[(0,'0'), (1,'1'), (2,'2'), (3,'3'), (4,'4')])
   bbb = forms.ChoiceField(choices=[(0,'No'), (1,'Yes')])

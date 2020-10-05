@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hearty | Information</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" 
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
   crossorigin="anonymous">
   <link rel="stylesheet" href="/static/css/main.css">
   <link rel="shortcut icon" href="/static/images/sa_logo.ico" />
@@ -21,7 +21,7 @@
           </a>
         </div>
         <nav>
-          <a class="hide-desktop"><img src="{% static '/images/ham.svg' %}" alt="toggle menu" class="menu" id="menu"></a>  
+          <a class="hide-desktop"><img src="{% static '/images/ham.svg' %}" alt="toggle menu" class="menu" id="menu"></a>
           <ul class="show-desktop hide-mobile" id="nav">
             <li id="exit" class="exit-btn hide-desktop"><img src="{% static '/images/exit.png' %}" alt=""></li>
             <li><a href="{% url 'home-page'%}">Home</a></li>
@@ -30,8 +30,24 @@
           </ul>
         </nav>
       </header>
-    
+    <section>
       <h1>Information</h1>
+        <h2 class="page-title">Contact us</h2>
+        <div class="dotted-line"></div>
+        <div style="width: 1000px; margin: 0px auto; text-align: center;">
+
+					<h1 class="contact-title">Clayton Campus Pharmacy</h1>
+					21 Chancellors Walk, Ground Floor, <br />
+									Clayton, Melbourne VIC 3168, Australia<br />
+									<strong>Hours: </strong>Monday – Friday, 9am &ndash; 5pm
+                                    <strong>Contact Number:</strong> 9905 3175<br /><br />
+
+
+            <iframe width="1000" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12591.275001260627!2d145.1288228!3d-37.911299!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad66acbfa45d5f5%3A0xf0e0619b0a7d940a!2sCampus%20Pharmacy!5e0!3m2!1sen!2sau!4v1601887049094!5m2!1sen!2sau"></iframe><br />
+        </div>
+
+    </section>
+
 
 
     <footer>
@@ -39,7 +55,7 @@
         <div class="container">
           <a href="{% url 'home-page'%}">
             <img class="sa-logo" src="{% static '/images/sa_logo.png' %}" alt="Hearty Logo">
-          </a>  
+          </a>
           <p class="address">13 Ancora Imparo Way,  Monash University,  3800<br>VIC</p>
           <ul class="footer-links">
             <li><a href="#">Terms of Service</a></li>
@@ -59,7 +75,7 @@
         nav.classList.toggle('hide-mobile');
         e.preventDefault();
       });
-      
+
       exit.addEventListener('click', function(e) {
         nav.classList.add('hide-mobile');
         e.preventDefault();
