@@ -40,13 +40,13 @@ def result(unit):
     test = scaler.transform(unit)
     ypred = model.predict(test)
     new_df = pd.DataFrame(ypred, columns=['Diagnosis'])
-    new_df = new_df.replace({1: 'Likely to have heart disease', 0: 'Not likely to have heart disease'})
+    new_df = new_df.replace({1: 'At risk of heart disease', 0: 'No risk of heart disease'})
     return ('{}'.format(new_df.values[0][0]))
   except ValueError as e:
     return Response(e.args[0], status.HTTP_400_BAD_REQUEST)
 
 def cxcontact(request):
-  if request.method=='POST':
+  if request.method == 'POST':
     form = PatientForm(request.POST)
     if form.is_valid():
         typical_chest_pain = form.cleaned_data['typical_chest_pain']
@@ -66,8 +66,7 @@ def cxcontact(request):
         diastolic_murmur = form.cleaned_data['diastolic_murmur']
         info = (request.POST).dict()
         answer = result(info)
-        messages.success(request, 'Diagnosis: {}'.format(answer))
-        
+        messages.success(request, '{}'.format(answer))      
   form = PatientForm()
 
   return render(request, 'form/cxform.html', {'form':form})

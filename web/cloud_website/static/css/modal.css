@@ -1,0 +1,146 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+/* Mobile first formatting*/
+
+.modal-form {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+}
+
+.modal-content-form {
+  background-color: #fff;
+  border: none;
+  margin: 20% auto;
+  border-radius: 5px;
+  width: 90%;
+  box-shadow: 0 5px 8px 0 rgba(63, 60, 60, 0.2),
+   0 7px 20px 0 rgba(63, 60, 60, 0.17),
+   0 7px 20px 0 rgba(63, 60, 60, 0.17);
+   animation-name: modal-open;
+   animation-duration: 1s;
+   overflow: hidden;
+   max-width: 700px;
+}
+
+.modal-container {
+  display: inline-flex;
+  overflow: hidden;
+  padding: .5em 0 2em 1.5em;
+}
+
+.modal-text {
+  width: 49%;
+  margin: 2%;
+}
+
+.modal-text ul h1 {
+  margin-bottom: 0.4em;
+  padding: 0;
+}
+
+.modal-text p {
+  margin-bottom: 1.5em;
+}
+
+.modal-text h6 {
+  color: rgb(196, 196, 196);
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+
+.cta-modal {
+  background-color: #820041;
+  color: #fff;
+  width: calc(100% - 2em);
+  text-align: center;
+  display: block;
+  border-radius: 5px;
+  padding: .5em;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 7% auto 9% 0;
+  position: relative;
+  outline: none;
+  border: none;
+  font-weight: bold;
+  max-width: 215px;
+}
+
+.cta-modal:hover  {
+  background-color: #C20259;
+  color: #fff;
+  text-decoration: none;
+}
+
+.close-btn {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  margin: 0.5% 4% 0 0;
+}
+
+.close-btn:hover, .close-btn:focus {
+  color: #820041;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.modal-img-mobile {
+  height: 100%;
+  width: 346px;
+  transform: rotate(-20deg);
+  position: relative;
+  left: -28px;
+}
+
+.modal-img-desktop {
+  height: 100%;
+  width: 68%;
+  position: relative;
+  top: 42px;
+  margin-left: -121px;
+}
+
+@keyframes modal-open {
+  from{opacity: 0}
+  to{opacity: 1;}
+}
+
+.form-hide-mobile {
+  display: none;
+} 
+
+/*Formatting for desktop*/
+
+@media only screen and (min-width:593px) {
+
+  .form-hide-desktop {
+    display: none;
+  }  
+
+  .form-hide-mobile {
+    display: block;
+  }
+
+  .modal-text {
+    width: 47%;
+    margin: 2%;
+  }
+
+  .modal-container {
+    display: inline-flex;
+    overflow: hidden;
+    padding: .5em 0 2em 2em;
+  }
+
+}
