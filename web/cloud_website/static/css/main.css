@@ -127,6 +127,7 @@ h2 {
   outline: none;
   border: none;
   font-weight: bold;
+  max-width: 200px;
 }
 
 .cta:hover  {
