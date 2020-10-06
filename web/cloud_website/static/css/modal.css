@@ -5,7 +5,6 @@
 /* Mobile first formatting*/
 
 .modal-form {
-  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -29,20 +28,27 @@
    animation-name: modal-open;
    animation-duration: 1s;
    overflow: hidden;
-   max-width: 600px;
+   max-width: 700px;
+}
+
+.modal-container {
+  display: inline-flex;
+  overflow: hidden;
+  padding: .5em 0 2em 1.5em;
 }
 
 .modal-text {
-  width: 63%;
+  width: 49%;
   margin: 2%;
 }
 
-.modal-text h1 {
+.modal-text ul h1 {
   margin-bottom: 0.4em;
+  padding: 0;
 }
 
 .modal-text p {
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
 }
 
 .modal-text h6 {
@@ -61,11 +67,12 @@
   padding: .5em;
   text-decoration: none;
   font-size: 16px;
-  margin: 7% auto 11% 0;
+  margin: 7% auto 9% 0;
   position: relative;
   outline: none;
   border: none;
   font-weight: bold;
+  max-width: 215px;
 }
 
 .cta-modal:hover  {
@@ -87,27 +94,21 @@
   cursor: pointer;
 }
 
-.modal-container {
-  display: inline-flex;
-  overflow: hidden;
-  padding: 2em;
-}
 
 .modal-img-mobile {
   height: 100%;
   width: 346px;
-  transform: rotate(-25deg);
+  transform: rotate(-20deg);
   position: relative;
-  top: -25px;
-  left: -15px;
+  left: -28px;
 }
 
 .modal-img-desktop {
   height: 100%;
   width: 68%;
   position: relative;
-  top: -25px;
-  margin-left: -46px;
+  top: 42px;
+  margin-left: -121px;
 }
 
 @keyframes modal-open {
@@ -118,6 +119,8 @@
 .form-hide-mobile {
   display: none;
 } 
+
+/*Formatting for desktop*/
 
 @media only screen and (min-width:593px) {
 
@@ -130,15 +133,14 @@
   }
 
   .modal-text {
-    width: 63%;
+    width: 47%;
     margin: 2%;
   }
 
-
-
-
-
-
-
+  .modal-container {
+    display: inline-flex;
+    overflow: hidden;
+    padding: .5em 0 2em 2em;
+  }
 
 }

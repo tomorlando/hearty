@@ -46,7 +46,7 @@ def result(unit):
     return Response(e.args[0], status.HTTP_400_BAD_REQUEST)
 
 def cxcontact(request):
-  if request.method=='POST':
+  if request.method == 'POST':
     form = PatientForm(request.POST)
     if form.is_valid():
         typical_chest_pain = form.cleaned_data['typical_chest_pain']
