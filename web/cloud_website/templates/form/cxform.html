@@ -29,6 +29,7 @@
             <li><a href="{% url 'home-page'%}">Home</a></li>
             <li><a href="{% url 'diagnosis-page'%}">Diagnosis</a></li>
             <li><a href="{% url 'information-page'%}">Information</a></li>
+            <li><a href="{% url 'information-page'%}" class="cta-nav">What to do next</a></li>
           </ul>
         </nav>
       </header>
@@ -55,7 +56,7 @@
             <form method='POST' id="form-submit">
               {% csrf_token %}
               {{form|crispy}}
-              <button type='submit' class="cta" style="margin-top: 3em" id='submit'>Submit</button>
+              <button type='submit' class="cta" style="margin-top: 2em" id='submit'>Submit</button>
             </form>
           </div>
         </div>

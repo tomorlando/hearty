@@ -27,6 +27,7 @@
             <li><a href="{% url 'home-page'%}">Home</a></li>
             <li><a href="{% url 'diagnosis-page'%}">Diagnosis</a></li>
             <li><a href="{% url 'information-page'%}">Information</a></li>
+            <li><a href="{% url 'diagnosis-page'%}" class="cta-nav">Get started</a></li>
           </ul>
         </nav>
       </header>
@@ -64,8 +65,10 @@
     </div>
 
     <div class="container">
-      <h2>Take the test now!</h2>
-      <a href="{% url 'diagnosis-page'%}" class="cta">Get started</a>
+      <div class="form-outline-main">
+        <h2>Take the test now!</h2>
+        <a href="{% url 'diagnosis-page'%}" class="cta">Get started</a>
+      </div>
     </div>
 
     <footer>
