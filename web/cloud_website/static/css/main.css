@@ -84,6 +84,7 @@ h1, .subhead {
   background: #EA7B74;
   color: #fff;
   padding: 2em 0 3em;
+  margin-bottom: 2em;
 }
 
 .dark-container ul li {
@@ -113,7 +114,6 @@ h2 {
 }
 
 .cta {
-  background-color: #820041;
   color: #fff;
   width: calc(100% - 6em);
   display: block;
@@ -122,22 +122,26 @@ h2 {
   padding: .5em;
   text-decoration: none;
   font-size: 16px;
-  margin: 7% auto 11%;
+  margin: 7% auto 2%;
   position: relative;
   outline: none;
+  box-shadow: 0px 0px 20px -10px rgba(0,0,0,0.3);
   border: none;
   font-weight: bold;
   max-width: 200px;
+  transition: all ease-in-out 300ms;
 }
 
-.cta:hover  {
-  background-color: #C20259;
+.cta:hover, .cta:focus  {
   color: #fff;
   text-decoration: none;
+  box-shadow: 0px 15px 5px -10px rgba(0,0,0,0.2);
+  transform: translateY(-.1em);
 }
 
 footer {
   background: #F9D9D7;
+  margin-top: 3em;
 } 
 
 .footer-container {
@@ -190,6 +194,15 @@ nav ul li a:hover {
 .exit-btn img {
   width: 25px;
   cursor: pointer;
+}
+
+.form-outline {
+  border-radius: 5px;
+  box-shadow: 0 5px 8px 0 rgba(63, 60, 60, 0.2),
+   0 7px 20px 0 rgba(63, 60, 60, 0.17),
+   0 7px 20px 0 rgba(63, 60, 60, 0.17);
+  padding: 0.5em 1.2em; 
+  border-radius: 5px;
 }
 
 
@@ -256,7 +269,7 @@ nav ul li a:hover {
 
   .cta {
     width: 30%;
-    margin-bottom: 4%;
+    margin-bottom: 1%;
     margin-top: 4%;
   }
 
@@ -295,6 +308,15 @@ nav ul li a:hover {
     background-color: inherit;
   }
 
+  .form-outline {
+    border-radius: 5px;
+    box-shadow: 0 5px 8px 0 rgba(63, 60, 60, 0.2),
+     0 7px 20px 0 rgba(63, 60, 60, 0.17),
+     0 7px 20px 0 rgba(63, 60, 60, 0.17);
+    padding: 1.5em; 
+    border-radius: 5px;
+  }
+
   .container-form {
     text-align: left;
     padding: 1.2em 10em .5em;
@@ -304,7 +326,8 @@ nav ul li a:hover {
     width: 100%;
     background: #EA7B74;
     color: #fff;
-    padding: 2em 05em;
+    padding: 2em 0 3em;
+    margin-bottom: 3em;
   }
 
   .subhead-form {

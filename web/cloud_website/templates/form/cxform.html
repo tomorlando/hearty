@@ -47,15 +47,17 @@
 
     <section>
       <div class="container">
-        <h2 class="form-heading">
-          Input your information below
-        </h2>
-        <div class="container-form">
-          <form method='POST' id="form-submit">
-            {% csrf_token %}
-            {{form|crispy}}
-            <button type='submit' class="cta" style="margin-top: 3em" id='submit'>Submit</button>
-          </form>
+        <div class="form-outline">
+          <h2 class="form-heading">
+            Input your information below
+          </h2>
+          <div class="container-form">
+            <form method='POST' id="form-submit">
+              {% csrf_token %}
+              {{form|crispy}}
+              <button type='submit' class="cta" style="margin-top: 3em" id='submit'>Submit</button>
+            </form>
+          </div>
         </div>
       </div>
     </section>  
@@ -85,7 +87,7 @@
               {% endif %}
               {% endfor %}
               </ul>
-              <a href="{% url 'information-page'%}" class="cta-modal">What to do now</a>
+              <a href="{% url 'information-page'%}" class="cta-modal">What to do next</a>
               <h6>
                 We've put together some information you might find useful
               </h6>
