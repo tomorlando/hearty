@@ -29,6 +29,9 @@ def home(request):
 def information(request):
   return render(request, 'info.html')
 
+def results(request):
+  return render(request, 'results.html')
+
 def result(unit):
   try:
     model = joblib.load('/Users/Tom Orlando/Monash/FIT3164/models/classification/log_reg/log_reg.pkl')

@@ -27,9 +27,9 @@
           <ul class="show-desktop hide-mobile" id="nav">
             <li id="exit" class="exit-btn hide-desktop"><img src="{% static '/images/exit.png' %}" alt=""></li>
             <li><a href="{% url 'home-page'%}">Home</a></li>
+            <li><a href="{% url 'information-page'%}">How it works</a></li>
             <li><a href="{% url 'diagnosis-page'%}">Diagnosis</a></li>
-            <li><a href="{% url 'information-page'%}">Information</a></li>
-            <li><a href="{% url 'information-page'%}" class="cta-nav">What to do next</a></li>
+            <li><a href="{% url 'diagnosis-page'%}" class="cta-nav">Get started</a></li>
           </ul>
         </nav>
       </header>
@@ -77,7 +77,7 @@
               {{ message }}
               </li>
               </h1>
-              {% if message is "At risk of heart disease" %}
+              {% if message.message == 'At risk of heart disease' %}
                 <p>
                 <b>Don't stress!</b> This happens to many people, you've taken the first step in getting tested
                 </p>

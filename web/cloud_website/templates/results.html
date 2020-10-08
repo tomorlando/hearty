@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hearty | Information</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="shortcut icon" href="/static/images/sa_logo.ico" />
+</head>
+
+<body>
+  {% load static %}
+    <div class="container">
+      <header>
+        <div class="nav-brand">
+          <a class="nav-item" href="{% url 'home-page'%}">
+            <img class="logo" src="{% static '/images/logo.svg' %}" alt="Hearty Logo">
+          </a>
+        </div>
+        <nav>
+          <a class="hide-desktop"><img src="{% static '/images/ham.svg' %}" alt="toggle menu" class="menu" id="menu"></a>
+          <ul class="show-desktop hide-mobile" id="nav">
+            <li id="exit" class="exit-btn hide-desktop"><img src="{% static '/images/exit.png' %}" alt=""></li>
+            <li><a href="{% url 'home-page'%}">Home</a></li>
+            <li><a href="{% url 'information-page'%}">How it works</a></li>
+            <li><a href="{% url 'diagnosis-page'%}">Diagnosis</a></li>
+            <li><a href="{% url 'diagnosis-page'%}" class="cta-nav">Test again</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <section>
+      <div class="container">
+          <h1>Results</h1>
+      </div>
+    </section>  
+
+      <footer>
+        <div class="footer-container">
+          <div class="container">
+            <a href="{% url 'home-page'%}">
+              <img class="sa-logo" src="{% static '/images/sa_logo.png' %}" alt="Hearty Logo">
+            </a>
+            <p class="address">13 Ancora Imparo Way,  Monash University,  3800<br>VIC</p>
+            <ul class="footer-links">
+              <li><a href="#">Terms of Service</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    
+
+  <script src="/static/js/menu.js"></script>
+
+</body>
+</html>

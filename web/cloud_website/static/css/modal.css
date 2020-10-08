@@ -20,11 +20,11 @@
   background-color: #fff;
   border: none;
   margin: 20% auto;
-  border-radius: 5px;
+  border-radius: 8px;
   width: 90%;
-  box-shadow: 0 5px 8px 0 rgba(63, 60, 60, 0.2),
-   0 7px 20px 0 rgba(63, 60, 60, 0.17),
-   0 7px 20px 0 rgba(63, 60, 60, 0.17);
+  box-shadow: 0 30px 60px -12px rgba(50,50,93,.25), 
+  0 18px 36px -18px rgba(0,0,0,.3), 
+  0 -12px 36px -8px rgba(0,0,0,.025);
    animation-name: modal-open;
    animation-duration: 1s;
    overflow: hidden;
@@ -63,7 +63,7 @@
   width: calc(100% - 2em);
   text-align: center;
   display: block;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: .5em;
   text-decoration: none;
   font-size: 16px;
