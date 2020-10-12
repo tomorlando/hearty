@@ -9,7 +9,8 @@ router.register('cloud_website', views.InformationView)
 urlpatterns = [
     path('', views.home, name='home-page'),
     path('diagnosis/', views.cxcontact, name='diagnosis-page'),
-    path('results/', views.results, name='results-page'),
+    path('results-positive/', views.results_positive, name='results-positive-page'),
+    path('results-negative/', views.results_negative, name='results-negative-page'),
     path('how-it-works/', views.information, name='information-page'),
     path('api/', include(router.urls), name='api-page'),
 ]

@@ -29,8 +29,11 @@ def home(request):
 def information(request):
   return render(request, 'info.html')
 
-def results(request):
-  return render(request, 'results.html')
+def results_positive(request):
+  return render(request, 'results_positive.html')
+
+def results_negative(request):
+  return render(request, 'results_negative.html')
 
 def result(unit):
   try:
@@ -43,7 +46,7 @@ def result(unit):
     test = scaler.transform(unit)
     ypred = model.predict(test)
     new_df = pd.DataFrame(ypred, columns=['Diagnosis'])
-    new_df = new_df.replace({1: 'At risk of heart disease', 0: 'No risk of heart disease'})
+    new_df = new_df.replace({1: 'At risk of heart disease', 0: 'Low risk of heart disease'})
     return ('{}'.format(new_df.values[0][0]))
   except ValueError as e:
     return Response(e.args[0], status.HTTP_400_BAD_REQUEST)
