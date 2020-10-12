@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hearty | Information</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+  crossorigin="anonymous">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <link rel="stylesheet" href="/static/css/results.css">
+  <link rel="shortcut icon" href="/static/images/sa_logo.ico" />
+</head>
+
+<body>
+  {% load static %}
+    <div class="container">
+      <header>
+        <div class="nav-brand">
+          <a class="nav-item" href="{% url 'home-page'%}">
+            <img class="logo" src="{% static '/images/logo.svg' %}" alt="Hearty Logo">
+          </a>
+        </div>
+        <nav>
+          <a class="hide-desktop"><img src="{% static '/images/ham.svg' %}" alt="toggle menu" class="menu" id="menu"></a>
+          <ul class="show-desktop hide-mobile" id="nav">
+            <li id="exit" class="exit-btn hide-desktop"><img src="{% static '/images/exit.png' %}" alt=""></li>
+            <li><a href="{% url 'home-page'%}">Home</a></li>
+            <li><a href="{% url 'information-page'%}">How it works</a></li>
+            <li><a href="{% url 'diagnosis-page'%}">Diagnosis</a></li>
+            <li><a href="{% url 'diagnosis-page'%}" class="cta-nav">Test again</a></li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <section>
+      <div class="dark-container-2">
+        <div class="container">
+          <h1>Happy with your results?</h1>
+          <p class="subhead-form">
+            Though this test isn't definitive, it acts as the first step in understanding if you could be at risk of heart disease.
+            The most important thing to do now is to <b>maintain a balanced and healhty lifestyle</b> and to be aware of potential risks
+            associated with heart disease.<br><br>To help you out, we've included some information below which you might find useful.
+          </p>
+        </div>
+      </div>
+    </section> 
+
+    <section>
+      <div class="container">
+        <div class="container-info">
+          <div class="info-text">
+            <h4>What is CAD?</h4>
+            <p>Coronary Artery Disease (CAD) is a type of heart disease that has been a leading cause of death in several countries. <br><br>The purpose of 
+              our coronary arteries is to supply our heart muscle with oxygen-rich blood and CAD is caused when coronary arteries are narrowed 
+              down or blocked, resulting in the heart not getting enough oxygen-rich blood.</p>
+          </div>  
+          <div class="cad-image">
+            <img src="{% static '/images/cad_info.svg' %}" alt="Information on CAD">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container-results" >
+        <div class="container">
+          <h2 class="results-title">Quick facts on CAD</h2>
+          <div class="card-wrap">
+            <div class="card-right">
+              <ul class="card-container">
+                <h4>What causes CAD and what are the risk factors?</h4>
+                <li>
+                  Physically inactive
+                </li>
+                <li>
+                  Overweight or obese
+                </li>
+                <li>
+                  High blood pressure
+                </li>
+                <li>
+                  High cholesterole
+                </li>
+              </ul>
+              <div class="card-slice"></div>
+            </div>
+
+            <div class="card">
+              <ul class="card-container">
+                <h4>What are the symptoms of CAD?</h4>
+                <li>
+                  Chest / arm pain or discomfort (Angina)
+                </li>
+                <li>
+                  Light-headedness and nausea
+                </li>
+                <li>
+                  Cold sweat
+                </li>
+                <li>
+                  Shortness of breath
+                </li>
+              </ul>
+              <div class="card-slice"></div>
+            </div>
+
+            <div class="card-right">
+              <ul class="card-container">
+                <h4>Complications</h4>
+                <li>
+                  Chest pain
+                </li>
+                <li>
+                  Heart attack
+                </li>
+                <li>
+                  Abnormal heart rythm
+                </li>
+                <li>
+                  Heart failure
+                </li>
+              </ul>
+              <div class="card-slice"></div>
+            </div>
+
+            <div class="card">
+              <ul class="card-container">
+                <h4>How to prevent heart diease?</h4>
+                <li>
+                  Control blood pressure and cholesterol
+                </li>
+                <li>
+                  Have a healthy diet
+                </li>
+                <li>
+                  Exercise regularly 
+                </li>
+                <li>
+                  Reduce and manage stress
+                </li>
+              </ul>
+              <div class="card-slice"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="container">
+          <a href="{% url 'home-page'%}">
+            <img class="sa-logo" src="{% static '/images/sa_logo.png' %}" alt="Hearty Logo">
+          </a>
+          <p class="address">13 Ancora Imparo Way,  Monash University,  3800<br>VIC</p>
+          <ul class="footer-links">
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    
+
+  <script src="/static/js/menu.js"></script>
+
+</body>
+</html>
