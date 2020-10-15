@@ -5,12 +5,12 @@ from sklearn.preprocessing import MinMaxScaler
 import pandas as pd
 import random
 from sklearn.model_selection import cross_val_score
+from sklearn.model_selection import GridSearchCV
 
-random.seed(100)
 
 #Read external data
-Cad_train = pd.read_csv('heart_train.csv')
-Cad_test = pd.read_csv('heart_test.csv')
+Cad_train = pd.read_csv('heart_train_std.csv')
+Cad_test = pd.read_csv('heart_test_std.csv')
 
 Y_train = Cad_train.CAD_Yes.values
 Y_test = Cad_test.CAD_Yes.values
@@ -19,38 +19,23 @@ X_train = Cad_train.drop(['CAD_Yes'], axis = 1)
 X_test = Cad_test.drop(['CAD_Yes'], axis = 1)
 
 
-#Neuralnet without scaling the data
+nn_param = {
+    'hidden_layer_sizes': [(2,),(5,),(5,2),(10,10),(11,10),(11,11)],
+    'activation': ['relu','tanh'],
+    'solver': ['sgd','adam'],
+    'learning_rate': ['constant','adaptive']
+}
 
-MLP = MLPClassifier(hidden_layer_sizes=(11,10), max_iter = 500)
-MLP.fit(X_train, Y_train)
+from grid_search_wrapper.py import getBest_parameters()
 
-pred = MLP.predict(X_test)
-print(confusion_matrix(Y_test,pred))
+nn = MLPClassifier(max_iter=3000, random_state=42)
 
-#NN with scaled data
-
-MLP2 = MLPClassifier(hidden_layer_sizes=(11,10), max_iter = 500)
-scaler = MinMaxScaler(feature_range = (0,1))
-
-scaler.fit(X_train)
-
-X_train = scaler.transform(X_train)
-X_test = scaler.transform(X_test)
-
-MLP2.fit(X_train, Y_train)
-
-pred2 = MLP2.predict(X_test)
-print(confusion_matrix(Y_test,pred2))
-
-scores = cross_val_score(MLP, X_train, Y_train, cv=10, scoring="accuracy")
-
-meanScore = scores.mean()
-print("mean score of decision tree is ",meanScore * 100)
-
-scores = cross_val_score(MLP2, X_train, Y_train, cv=10, scoring="accuracy")
-
-meanScore = scores.mean()
-print("mean score of decision tree is ",meanScore * 100)
+best_param = getBest_parameters(nn, nn_param, X_train, Y_train)
+# best parameters : {'activation': 'tanh', 'hidden_layer_sizes': (5,), 'learning_rate': 'constant', 'solver': 'adam'}
 
 
-# Both scaled and not scaled produce above 80%
+yyy = MLPClassifier(**best_param, max_iter=3000, random_state=42)
+yyy.fit(X_train,Y_train)
+
+nn_y = yyy.predict(X_test)
+print(confusion_matrix(Y_test,nn_y))
