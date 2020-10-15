@@ -81,14 +81,15 @@
                 <p>
                 <b>Don't stress!</b> This happens to many people, you've taken the first step in getting tested
                 </p>
+                <a href="{% url 'results-positive-page'%}" class="cta-modal">What to do next</a>
               {% else %}
                 <p>
                 <b>Great news!</b> Keep up the good work, and remember to maintain a healthy lifestyle and diet
                 </p>
+                <a href="{% url 'results-negative-page'%}" class="cta-modal">What to do next</a>
               {% endif %}
               {% endfor %}
               </ul>
-              <a href="{% url 'results-page'%}" class="cta-modal">What to do next</a>
               <h6>
                 We've put together some information you might find useful
               </h6>

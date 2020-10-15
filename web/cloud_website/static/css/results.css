@@ -1,0 +1,207 @@
+
+/* Desktop design */
+
+.container-info {
+  display: flex;
+  text-align: left;
+}
+
+.info-text {
+  padding: 6.5em 0;
+}
+
+.cad-image {
+  box-shadow: 0 30px 60px -12px rgba(50,50,93,.25), 
+  0 18px 36px -18px rgba(0,0,0,.3), 
+  0 -12px 36px -8px rgba(0,0,0,.025);
+padding: 1.5em 0; 
+border-radius: 5px;
+margin-left: 10%
+}
+
+.cad-image img {
+  width: 450px;
+}
+
+.container-results {
+  margin: 4em 7em 7em 7em;
+}
+
+.container .card-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.results-title {
+  margin-bottom: 2em;
+}
+
+.card-wrap .card {
+  width: 45%;
+  padding: 2em 2em 0px;;
+}
+
+.card-wrap .card-right {
+  width: 45%;
+  padding: 2em 2em 0px;;
+}
+
+.card {
+  margin: 0 0 3em 0;
+  text-align: left;
+  border: none;
+  background: #FFF;
+  border-radius: 8px;
+  transition: all ease-in-out 300ms;
+  box-shadow: 0 15px 30px -6px rgba(50,50,93,.25), 
+  0 9px 18px -9px rgba(0,0,0,.3), 
+  0 -6px 18px -4px rgba(0,0,0,.025);
+  overflow: hidden;
+}
+
+.card-right {
+  margin: 0 3em 3em 0;
+  text-align: left;
+  border: none;
+  background: #FFF;
+  border-radius: 8px;
+  transition: all ease-in-out 300ms;
+  box-shadow: 0 15px 30px -6px rgba(50,50,93,.25), 
+  0 9px 18px -9px rgba(0,0,0,.3), 
+  0 -6px 18px -4px rgba(0,0,0,.025);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-.3em); 
+}
+
+.card-right:hover {
+  transform: translateY(-.3em); 
+}
+
+.card-slice {
+  background: #EA7B74;
+  height: 100%;
+  transform: rotate(-26deg);
+  position: relative;
+  left: 179px;
+  top: 25px;
+  padding: 3em;
+}
+
+.card h4 {
+  margin-bottom: 1em;
+}
+
+.card-right h4 {
+  margin-bottom: 1em;
+}
+
+.card ul {
+  list-style: none;
+}
+
+.card ul li::before {
+  content: "\2022";
+  color: #EA7B74;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+}
+
+.card-right ul {
+  list-style: none;
+}
+
+.card-right ul li::before {
+  content: "\2022";
+  color: #EA7B74;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+}
+
+
+/* Mobile modifications */ 
+
+@media only screen and (max-width: 992px){
+
+  .card-wrap .card {
+    width: 60%;
+    padding: 2em 2em 0px;;
+  }
+  
+  .card-wrap .card-right {
+    width: 60%;
+    padding: 2em 2em 0px;;
+  }
+
+  .container-info {
+    text-align: left;
+    display: block;
+  }
+
+  .info-text {
+    padding: 1em 0;
+}
+
+  .cad-image img {
+    width: 315px;
+  }
+
+  .cad-image {
+    margin: 0
+  }
+
+  .container-results {
+    margin: 2em 0;
+  }
+
+  .card {
+    margin: 0 0 3em 0;
+    text-align: left;
+    border: none;
+    background: #FFF;
+    border-radius: 8px;
+    transition: all ease-in-out 300ms;
+    box-shadow: 0 15px 30px -6px rgba(50,50,93,.25), 
+    0 9px 18px -9px rgba(0,0,0,.3), 
+    0 -6px 18px -4px rgba(0,0,0,.025);
+    overflow: hidden;
+  }
+
+  .card-wrap .card {
+    padding: 1.5em;
+    width: 100%;
+  }
+
+  .card-right {
+    margin: 0 0 3em 0;
+    text-align: left;
+    border: none;
+    background: #FFF;
+    border-radius: 8px;
+    transition: all ease-in-out 300ms;
+    box-shadow: 0 15px 30px -6px rgba(50,50,93,.25), 
+    0 9px 18px -9px rgba(0,0,0,.3), 
+    0 -6px 18px -4px rgba(0,0,0,.025);
+    overflow: hidden;
+  }
+
+  .card-wrap .card-right {
+    padding: 1.5em;
+    width: 100%;
+  }
+
+  .card-slice {
+    background: #EA7B74;
+    height: 100%;
+    transform: rotate(-26deg);
+    position: relative;
+    left: 168px;
+    top: 53px;
+    padding: 3em;
+}
+
+}
