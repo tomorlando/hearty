@@ -37,12 +37,12 @@ def results_negative(request):
 
 def result(unit):
   try:
-    model = joblib.load('./cloud_website/final_model.pkl')
+    model = joblib.load('./cloud_website/models/final_model.pkl')
     mydata = unit
     unit = np.array(list(mydata.values()))
     unit = unit[1:]
     unit = unit.reshape(1, -1)
-    scaler = joblib.load('./cloud_website/scaler.pkl')
+    scaler = joblib.load('./cloud_website/models/scaler.pkl')
     test = scaler.transform(unit)
     ypred = model.predict(test)
     new_df = pd.DataFrame(ypred, columns=['Diagnosis'])
