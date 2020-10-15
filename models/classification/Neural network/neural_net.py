@@ -9,8 +9,8 @@ from sklearn.model_selection import GridSearchCV
 
 
 #Read external data
-Cad_train = pd.read_csv('heart_train_std.csv')
-Cad_test = pd.read_csv('heart_test_std.csv')
+Cad_train = pd.read_csv('./data/filtered_features/heart_train_std.csv')
+Cad_test = pd.read_csv('./data/filtered_features/heart_test_std.csv')
 
 Y_train = Cad_train.CAD_Yes.values
 Y_test = Cad_test.CAD_Yes.values
@@ -26,7 +26,7 @@ nn_param = {
     'learning_rate': ['constant','adaptive']
 }
 
-from grid_search_wrapper.py import getBest_parameters()
+from grid_search_wrapper import getBest_parameters
 
 nn = MLPClassifier(max_iter=3000, random_state=42)
 

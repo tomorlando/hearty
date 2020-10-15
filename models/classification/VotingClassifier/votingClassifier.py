@@ -15,8 +15,8 @@ import joblib
 
 
 #Reading the data
-Cad_train = pd.read_csv('heart_train_std.csv')
-Cad_test = pd.read_csv('heart_test_std.csv')
+Cad_train = pd.read_csv('./data/filtered_features/heart_train_std.csv')
+Cad_test = pd.read_csv('./data/filtered_features/heart_test_std.csv')
 
 #Get x & y values
 Y_train = Cad_train.CAD_Yes.values
@@ -93,7 +93,7 @@ print(confusion_matrix(Y_test,y_pred))
 
 scores = cross_val_score(final_model, X_train, Y_train, cv=5, scoring="accuracy")
 meanScore = scores.mean()
-print("mean score of decision tree is ",meanScore * 100)
+print("mean score of final model is ", meanScore * 100)
 
+joblib.dump(final_model, 'final_model.pkl')
 
-#joblib.dump(final_model, 'model.pkl')
