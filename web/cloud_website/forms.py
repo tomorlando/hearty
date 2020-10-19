@@ -1,3 +1,10 @@
+"""
+
+Author:Tom
+
+
+Django provides a rich framework to facilitate the creation of forms and the manipulation of form data.
+"""
 from django import forms
 
 class PatientForm(forms.Form):

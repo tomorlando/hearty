@@ -1,3 +1,7 @@
+"""
+author:Tom
+Django has the concept of “views” to encapsulate the logic responsible for processing a user’s request and for returning the response
+"""
 from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework import viewsets

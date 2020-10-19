@@ -1,3 +1,7 @@
+"""
+author:Tom
+Django provides an abstraction layer (the “models”) for structuring and manipulating the data of your Web application
+"""
 from django.db import models
 
 # Create your models here.
