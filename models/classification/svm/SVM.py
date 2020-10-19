@@ -1,8 +1,12 @@
-#install package skelean,pandas first
+"""
+author: jiantan
+version:4
+19/10/2020
+This model use SVM mechine learning algorithm to train dataset, and then evaluate the SVM model
+"""
+#install package skelean,joblib,pandas first
 import sklearn
-from sklearn import svm
 from sklearn.metrics import accuracy_score,f1_score,roc_auc_score,recall_score,precision_score
-from sklearn import metrics
 import joblib
 from sklearn.model_selection import cross_val_score
 import pandas as pd
@@ -41,5 +45,5 @@ scores = cross_val_score(svcclassifier, X_train, Y_train, cv=10, scoring="accura
 print(scores)
 meanScore = scores.mean()
 print(meanScore * 100)
-
+#make pkl for svm model
 joblib.dump(svcclassifier, 'svm_model.pkl')

@@ -1,4 +1,10 @@
-#install package skelean,pandas first
+"""
+author: jiantan
+version:4
+19/10/2020
+This model use decision tree mechine learning algorithm to train dataset, and then evaluate the decision treemodel
+"""
+#install package skelean,pandas joblibfirst
 import joblib
 import sklearn
 from sklearn.metrics import classification_report, confusion_matrix
@@ -6,6 +12,7 @@ from sklearn.model_selection import cross_val_score
 import pandas as pd
 from sklearn.tree import tree
 from sklearn.metrics import accuracy_score,f1_score,roc_auc_score,recall_score,precision_score
+
 #Read external data
 Cad_train = pd.read_csv('/Users/tanji/Desktop/FIT3164/data/filtered_features/heart_train_std.csv')
 #extract Xand Y
@@ -39,5 +46,5 @@ scores = cross_val_score(dcclassifier, X_train, Y_train, cv=10, scoring="accurac
 
 meanScore = scores.mean()
 print("mean score of decision tree is ",meanScore * 100)
-
+#make pkl for decision tree model
 joblib.dump(dcclassifier, 'dc_model.pkl')
