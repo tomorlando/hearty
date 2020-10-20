@@ -24,16 +24,16 @@ class InformationView(viewsets.ModelViewSet):
   serializer_class = InformationSerializers
 
 def home(request):
-  return render(request, 'index.html')
+  return render(request, 'index.html.jinja2')
 
 def information(request):
-  return render(request, 'info.html')
+  return render(request, 'info.html.jinja2')
 
 def results_positive(request):
-  return render(request, 'results_positive.html')
+  return render(request, 'results_positive.html.jinja2')
 
 def results_negative(request):
-  return render(request, 'results_negative.html')
+  return render(request, 'results_negative.html.jinja2')
 
 def result(unit):
   try:
@@ -75,6 +75,6 @@ def cxcontact(request):
         messages.success(request, '{}'.format(answer))      
   form = PatientForm()
 
-  return render(request, 'form/cxform.html', {'form':form})
+  return render(request, 'form.html.jinja2', {'form':form})
 
 
