@@ -90,10 +90,10 @@ print(score)
 
 print(confusion_matrix(Y_test,y_pred))
 
-
+#TODO add in more metrics
 scores = cross_val_score(final_model, X_train, Y_train, cv=5, scoring="accuracy")
 meanScore = scores.mean()
 print("mean score of final model is ", meanScore * 100)
 
-joblib.dump(final_model, 'final_model.pkl')
+#joblib.dump(final_model, 'final_model.pkl')
 
