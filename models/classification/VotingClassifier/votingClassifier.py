@@ -78,19 +78,32 @@ estimator.append(('NB', best_nb))
 final_model = VotingClassifier(estimators=estimator, voting='soft')
 final_model.fit(X_train, Y_train)
 
-
 # soft voting = take the average/mean value
 # hard voting = take the majority output
     ## cannot use predict_proba when using Hard voting
 
 y_pred = final_model.predict(X_test)
 
+# Evaluating the Algorithm
+from sklearn.metrics import classification_report
+from sklearn.metrics import accuracy_score, f1_score, roc_auc_score, recall_score, precision_score
+from sklearn.metrics import plot_roc_curve, plot_confusion_matrix
+import matplotlib.pyplot as plt
+
 score = accuracy_score(Y_test, y_pred)
 print(score)
 
-print(confusion_matrix(Y_test,y_pred))
+plot_confusion_matrix(final_model, X_test, Y_test, cmap='Blues')
+plt.show()
 
-#TODO add in more metrics
+print("recall score", recall_score(Y_test, final_model.predict(X_test)))
+print("f1_score", f1_score(Y_test, final_model.predict(X_test)))
+print("precision", precision_score(Y_test, final_model.predict(X_test)))
+
+plot_roc_curve(final_model, X_test, Y_test)
+plt.show()
+
+
 scores = cross_val_score(final_model, X_train, Y_train, cv=5, scoring="accuracy")
 meanScore = scores.mean()
 print("mean score of final model is ", meanScore * 100)
