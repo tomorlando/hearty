@@ -14,11 +14,11 @@ import pickle
 import joblib
 
 
-df = pd.read_csv('/Users/Tom Orlando/Monash/FIT3164/data/filtered_features/heart_train.csv')
+df = pd.read_csv('./data/filtered_features/heart_train.csv')
 y_train = df.CAD_Yes.values
 x_train = df.drop(['CAD_Yes'], axis=1)
 
-df = pd.read_csv('/Users/Tom Orlando/Monash/FIT3164/data/filtered_features/heart_test.csv')
+df = pd.read_csv('./data/filtered_features/heart_test.csv')
 y_test = df.CAD_Yes.values
 x_test = df.drop(['CAD_Yes'], axis=1)
 

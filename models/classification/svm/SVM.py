@@ -12,13 +12,13 @@ from sklearn.model_selection import cross_val_score
 import pandas as pd
 
 #Read external data
-Cad_train = pd.read_csv('/Users/tanji/Desktop/FIT3164/data/filtered_features/heart_train_std.csv')
+Cad_train = pd.read_csv('./data/filtered_features/heart_train_std.csv')
 #extract Xand Y
 Y_train = Cad_train.CAD_Yes.values
 
 X_train = Cad_train.drop(['CAD_Yes'], axis = 1)
 #Read external data
-Cad_test = pd.read_csv('/Users/tanji/Desktop/FIT3164/data/filtered_features/heart_train_std.csv')
+Cad_test = pd.read_csv('./data/filtered_features/heart_train_std.csv')
 #extract Xand Y
 Y_test = Cad_test.CAD_Yes.values
 X_test = Cad_test.drop(['CAD_Yes'], axis = 1)
