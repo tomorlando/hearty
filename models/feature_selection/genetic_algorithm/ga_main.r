@@ -14,19 +14,21 @@
 rm(list = ls())
 setwd("C:\\Users\\Tom Orlando\\Monash\\FIT3164")
 
-#install.packages("caret")
-#install.packages("randomForest")
-#install.packages("funModeling")
-#install.packages("tidyverse")
-#install.packages("GA")
-#install.packages("e1071")
-#install.packages("doParallel")
+install.packages("caret")
+install.packages("randomForest")
+install.packages("funModeling")
+install.packages("tidyverse")
+install.packages("GA")
+install.packages("dplyr")
+install.packages("e1071")
+install.packages("doParallel")
 
 library(caret)
 library(randomForest)
 library(funModeling)
 library(tidyverse)
 library(GA)
+library(dplyr)
 library("e1071")
 source('./build/wrappers/ga_wrappers.R')
 
@@ -36,7 +38,7 @@ df <- read.csv('./data/full_data/heart_clean.csv')
 # Preparing data to read into algorithm
 df$CAD_Yes=factor(df$CAD_Yes,levels =c(0,1),labels = c('No','Yes'))   # required as ga function needs factors
 df.y <- as.factor(df$CAD_Yes)
-df.x <- select(df, -CAD_Yes)
+df.x <- df[, 1:(ncol(df)-1)]
 num_vars <- ncol(df.x)
 var_names <- colnames(df.x)
 
