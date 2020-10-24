@@ -1,3 +1,15 @@
+############################################
+# File      : votingClassifier.py
+# Project   : FIT3164 project
+#
+# Date      : 5/10/2020
+# Author    : Abrar Fauzan Hamzah
+# 
+# Purpose   : Building a function to get the 
+#             correlated features which will
+#             be dropped from the dataset   
+############################################
+
 
 import pandas as pd
 import numpy as np, random
@@ -30,13 +42,15 @@ X_test = Cad_test.drop(['CAD_Yes'], axis = 1)
 estimator = []
 
 # The code chunk below is fitting the model which uses the best parameters after gridSearchCV
+
+## GridSearchCV for NN & LR have been done in their own file to reduce time taken for this file to run
 best_nn = MLPClassifier(max_iter=3000, activation='tanh', hidden_layer_sizes=(5,), learning_rate='constant', solver='adam')
 best_nn.fit(X_train,Y_train)
 
 best_lr = LogisticRegression(C=4.281332398719396, penalty='l1', solver='liblinear')
 best_lr.fit(X_train,Y_train)
 
-
+# Finding the best parameters for SVM
 SVM = SVC(probability=True)
 svc_param_grid = {'kernel': ['rbf','linear'],
                   'gamma': [ 0.001, 0.01, 0.1, 1],
@@ -48,6 +62,8 @@ best_param = getBest_parameters(SVM, svc_param_grid, X_train, Y_train)
 best_svm = SVC(**best_param, probability=True)
 best_svm.fit(X_train,Y_train)
 
+
+# Finding the best parameters for Decision Tree
 DT = DecisionTreeClassifier()
 
 dt_param_grid = {'criterion': ['gini','entropy'],
@@ -59,7 +75,7 @@ best_dt = DecisionTreeClassifier(**best_dt_param)
 best_dt.fit(X_train,Y_train)
 
 
-
+# Finding the best parameters for Bernoulli
 NB = BernoulliNB()
 nb_param_grid = { 'alpha': [0.01,0.1,0.5,1,10]
                 }
@@ -93,20 +109,24 @@ import matplotlib.pyplot as plt
 score = accuracy_score(Y_test, y_pred)
 print(score)
 
+# Plotting the confusion matrix
 plot_confusion_matrix(final_model, X_test, Y_test, cmap='Blues')
 plt.show()
 
+# Analyse the metrics score
 print("recall score", recall_score(Y_test, final_model.predict(X_test)))
 print("f1_score", f1_score(Y_test, final_model.predict(X_test)))
 print("precision", precision_score(Y_test, final_model.predict(X_test)))
 
+# Plotting the ROC curve and show the AUC
 plot_roc_curve(final_model, X_test, Y_test)
 plt.show()
 
-
+# calculate the average accuracy
 scores = cross_val_score(final_model, X_train, Y_train, cv=5, scoring="accuracy")
 meanScore = scores.mean()
 print("mean score of final model is ", meanScore * 100)
 
-#joblib.dump(final_model, 'final_model.pkl')
+# uncomment the code below to get the pkl file to be used by the django back-end
+# joblib.dump(final_model, 'final_model.pkl')
 
