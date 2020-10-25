@@ -1,4 +1,14 @@
-
+############################################
+# File      : get_best_features.r
+# Project   : FIT3164 project
+#
+# Date      : 03/09/2020
+# Author    : Abrar Fauzan Hamzah
+# 
+# Purpose   : Filtering all the best features 
+#             based on output from feature selection 
+#             algorithms.
+############################################
 
 df <- read.csv('./data/full_data/heart_clean.csv')
 

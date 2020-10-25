@@ -4,6 +4,11 @@ from . import views
 from rest_framework import routers
 
 
+"""
+The below paths described are the urls we use for the website and are directly linked to the
+views.py file. These will allow the user to navigate to different pages on the website.
+"""
+
 router = routers.DefaultRouter()
 router.register('cloud_website', views.InformationView)
 urlpatterns = [

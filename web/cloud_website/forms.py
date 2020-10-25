@@ -1,13 +1,14 @@
 """
-
 Author:Tom
-
-
 Django provides a rich framework to facilitate the creation of forms and the manipulation of form data.
 """
 from django import forms
 
 class PatientForm(forms.Form):
+  """
+  This class designs the form which will be used to gather information from the user. Most of the robustness of the product
+  is based on Django's capabilities such as choosing specific data types to input, drop downs and error messages if wrong input is added
+  """
   typical_chest_pain = forms.ChoiceField(choices = [(0,'No'), (1,'Yes')])
   age = forms.IntegerField(min_value=0,widget=forms.NumberInput(attrs={'placeholder': 'Enter patient age'}))
   dm = forms.ChoiceField(choices=[(0,'No'), (1,'Yes')])
