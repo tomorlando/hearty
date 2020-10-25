@@ -1,3 +1,13 @@
+#########################################################
+# File      : naiveBayes.py
+# Project   : FIT3164 project
+#
+# Date      : 5/10/2020
+# Author    : Abrar Fauzan Hamzah
+# 
+# Purpose   : Implement Naive Bayes classifier 
+#             & test Gaussian, multinomial and Bernoulli   
+########################################################
 
 import pandas as pd
 import numpy as np
@@ -9,8 +19,8 @@ from sklearn.model_selection import cross_val_score
 #Read external data
 Cad_train = pd.read_csv('./data/filtered_features/heart_train.csv')
 Cad_test = pd.read_csv('./data/filtered_features/heart_test.csv')
-#extract Xand Y
 
+#extract Xand Y
 Y_train = Cad_train.CAD_Yes.values
 Y_test = Cad_test.CAD_Yes.values
 
@@ -29,7 +39,7 @@ Gaus_predicted = Gaus_train.predict(X_test)
 print(metrics.confusion_matrix(expected, Gaus_predicted))
 
 
-#binomial
+# Binomial
 binomial = BernoulliNB()
 binomial.fit(X_train, Y_train)
 
@@ -46,6 +56,7 @@ scores = cross_val_score(binomial, X_test, Y_test, cv=10, scoring="accuracy")
 meanScore = scores.mean()
 print(meanScore * 100)
 
+# Multinomial
 multi = MultinomialNB()
 multi.fit(X_train, Y_train)
 
