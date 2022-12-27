@@ -87,6 +87,7 @@ def result(unit):
     unit = unit[1:]       # get rid of the 'intercept' column initialised by numpy
     unit = unit.reshape(1, -1)      # reshape list to be in column vector form
     scaler = joblib.load('./cloud_website/models/scaler.pkl')     # load the scaler used in models
+    scaler.clip = False
     test = scaler.transform(unit)       # using the scaler we transform the user input
     ypred = model.predict(test)         # make a prediction using scaled user input and final model
     new_df = pd.DataFrame(ypred, columns=['Diagnosis'])       # add result into a dataframe to make it easier to manipulate

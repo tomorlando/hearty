@@ -20,4 +20,3 @@ urlpatterns = [
     path('api/', include(router.urls), name='api-page'),
 ]
 
-
